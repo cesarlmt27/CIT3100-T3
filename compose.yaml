@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iot_platform
+    volumes:
+      - './iot_platform:/app/iot_platform'
+    ports:
+      - '8000:8000'
+    restart: always
