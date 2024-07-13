@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin-register/', views.AdminRegister.as_view(), name='admin-register'),
+    path('company/', views.CompanyView.as_view(), name='company-list-create'),
+    path('company/<int:pk>/', views.CompanyView.as_view(), name='company-detail'),
+    path('admin-locations/', views.AdminLocationView.as_view(), name='admin-locations'),
+    path('admin-locations/<int:pk>/', views.AdminLocationView.as_view(), name='admin-location-detail'),
+    path('company/locations/', views.CompanyLocationView.as_view(), name='company-location-list'),
+    path('company/locations/<int:pk>/', views.CompanyLocationView.as_view(), name='company-location-detail'),
 ]
