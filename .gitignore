@@ -1,5 +1,6 @@
 venv
 db.sqlite3
 __pycache__
-migrations
+iot_platform/api/migrations/*
+!iot_platform/api/migrations/__init__.py
 entrypoint.sh
