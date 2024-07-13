@@ -1,7 +1,5 @@
-from django.utils.timezone import make_aware
 from django.utils import timezone
 from django.db import models
-import datetime
 import uuid
 import json
 
@@ -45,12 +43,3 @@ class SensorData(models.Model):
     # Método para obtener los datos en formato JSON
     def get_data(self):
         return json.loads(self.data)
-
-    # Método para obtener la marca de tiempo en formato EPOCH
-    def get_timestamp_epoch(self):
-        return int(self.timestamp.timestamp())
-
-    # Método estático para convertir EPOCH a DateTime
-    @staticmethod
-    def epoch_to_datetime(epoch_time):
-        return make_aware(datetime.datetime.fromtimestamp(epoch_time))
