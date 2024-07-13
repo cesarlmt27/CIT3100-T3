@@ -20,11 +20,18 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('admin-register/', views.AdminRegister.as_view(), name='admin-register'),
-    path('company/', views.CompanyView.as_view(), name='company-list-create'),
-    path('company/<int:pk>/', views.CompanyView.as_view(), name='company-detail'),
-    path('admin-locations/', views.AdminLocationView.as_view(), name='admin-locations'),
-    path('admin-locations/<int:pk>/', views.AdminLocationView.as_view(), name='admin-location-detail'),
-    path('company/locations/', views.CompanyLocationView.as_view(), name='company-location-list'),
-    path('company/locations/<int:pk>/', views.CompanyLocationView.as_view(), name='company-location-detail'),
+    path('api/v1/admin-register/', views.AdminRegister.as_view(), name='admin-register'),
+
+    path('api/v1/company/', views.CompanyView.as_view(), name='company-list-create'),
+    path('api/v1/company/<int:pk>/', views.CompanyView.as_view(), name='company-details'),
+
+    path('api/v1/location-create/', views.CreateLocationView.as_view(), name='location-create'),
+    path('api/v1/location/', views.CompanyLocationView.as_view(), name='location-list'),
+    path('api/v1/location/<int:pk>/', views.CompanyLocationView.as_view(), name='location-view-update-delete'),
+
+    path('api/v1/sensor-create/', views.CreateSensorView.as_view(), name='sensor-create'),
+    path('api/v1/sensor/', views.CompanySensorView.as_view(), name='sensor-list'),
+    path('api/v1/sensor/<int:pk>/', views.CompanySensorView.as_view(), name='sensor-view-update-delete'),
+
+    path('api/v1/sensor-data/', views.SensorDataView.as_view(), name='sensor-data-create-view'),
 ]
